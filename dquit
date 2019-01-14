@@ -1,0 +1,14 @@
+#!/bin/sh
+QUITER="$(echo "reboot\nshutdown" | dmenu -p "What would you like to do?")"
+case $QUITER in
+	reboot)
+		sudo reboot
+		;;
+	shutdown)
+		sudo shutdown now
+		;;
+esac
+
+
+
+
