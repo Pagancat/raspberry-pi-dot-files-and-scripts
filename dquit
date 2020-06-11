@@ -1,10 +1,13 @@
 #!/bin/sh
-QUITER="$(echo "reboot\nshutdown" | dmenu -p "What would you like to do?")"
+QUITER="$(echo -e "lock-screen\nreboot\nshutdown" | dmenu -fn "-xos4-roboto-medium-r-*-*-14-*" -c -l 3)"
 case $QUITER in
+	lock-screen)
+		i3lock-fancy -p
+		;;
 	reboot)
-		sudo reboot
+		systemctl reboot
 		;;
 	shutdown)
-		sudo shutdown now
+		systemctl poweroff
 		;;
 esac
